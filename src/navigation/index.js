@@ -7,7 +7,7 @@ import TabNavigator from './TabNavigator';
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <DrawerNavigator />
     </NavigationContainer>
   );
 }

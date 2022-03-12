@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, SectionList, FlatList } from "react-native";
 import BookItem from "../components/BookItem";
 import bookData from "../json/books.json";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
 
   return (
     <View style={styles.container}>

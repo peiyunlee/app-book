@@ -4,17 +4,16 @@ import { StyleSheet, Text, View } from 'react-native';
 const DetailScreen = ({ route }) => {
   return (
     <View style={styles.container}>
-      <Text>detailscreen</Text>
+      <Text>DetailScreen</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
 });
 

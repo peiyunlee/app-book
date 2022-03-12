@@ -1,10 +1,10 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import HomeStackNavigator from './HomeStackNavigator'
-import DetailStackNavigator from './DetailStackNavigator'
-import HomeScreen from '../screens/HomeScreen';
-import DetailScreen from '../screens/DetailScreen';
-import StackNavigation from './StackNavigator';
+import HomeStackNavigator from './stack/HomeStackNavigator';
+import WishListStackNavigator from './stack/WishListStackNavigator';
+import MyBooksStackNavigator from './stack/MyBooksStackNavigator';
+import AccountStackNavigator from './stack/AccountStackNavigator';
+import SettingStackNavigator from './stack/SettingStackNavigator';
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -12,8 +12,11 @@ const Tab = createMaterialBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={StackNavigation} />
-      <Tab.Screen name="Detail" component={DetailScreen} />
+      <Tab.Screen name="Home" component={HomeStackNavigator} />
+      <Tab.Screen name="WishList" component={WishListStackNavigator} />
+      <Tab.Screen name="My Books" component={MyBooksStackNavigator} />
+      <Tab.Screen name="Account" component={AccountStackNavigator} />
+      <Tab.Screen name="Setting" component={SettingStackNavigator} />
     </Tab.Navigator>
   );
 }

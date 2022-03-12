@@ -1,19 +1,60 @@
-import TabNavigator from './TabNavigator'
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import HomeStackNavigator from './HomeStackNavigator';
-import DetailStackNavigator from './DetailStackNavigator';
-import HomeScreen from '../screens/HomeScreen';
-import DetailScreen from '../screens/DetailScreen';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+} from "@react-navigation/drawer";
+import { Pressable, Text, StyleSheet, Image } from "react-native";
+import HomeStackNavigator from "./stack/HomeStackNavigator";
+import TabNavigator from "./TabNavigator";
+// import WishListScreen from "../screens/WishListScreen";
 
-const Drawer = createDrawerNavigator()
+const Drawer = createDrawerNavigator();
+
+const drawerLink = ["Home", "WishList", "My Books", "Account", "Setting"];
+
+const CustomDrawerContent = (props) => {
+  const { navigation } = props;
+  return (
+    <DrawerContentScrollView {...props}>
+      {/* <DrawerItemList {...props} /> */}
+      {drawerLink.map((item) => (
+        <Pressable style={styles.btn} onPress={() => navigation.navigate(item)}>
+          <Image source={require("../assets/images/icon/icon_account.png")} />
+          <Text style={styles.btn_text}>{item}</Text>
+        </Pressable>
+      ))}
+    </DrawerContentScrollView>
+  );
+};
 
 const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={TabNavigator} />
-      <Drawer.Screen name="Detail" component={DetailScreen} />
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+    >
+      <Drawer.Screen name="Root" component={TabNavigator} />
+      {/* <Drawer.Screen name="WishList" component={WishListScreen} /> */}
     </Drawer.Navigator>
-  )
-}
+  );
+};
+
+const styles = StyleSheet.create({
+  btn: {
+    height: 56,
+    flexDirection: 'row',
+    paddingLeft: 16,
+    alignItems: 'center',
+  },
+  btn_text: {
+    marginLeft: 32,
+    fontSize: 14,
+    letterSpacing: 0.012,
+    color: "#666666",
+  },
+});
 
 export default DrawerNavigator;

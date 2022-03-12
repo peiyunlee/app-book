@@ -6,7 +6,7 @@ const BookItem = ({ data }) => {
     <View style={styles.container}>
       <Image style={styles.image} source={require('../assets/images/books/img_book_calligraphy.png')} />
       <Text style={styles.name}>{data.name}</Text>
-      <Text>{data.author}</Text>
+      <Text style={styles.author}>{data.author}</Text>
     </View>
   );
 }
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 12,
-    color: '#131313'
+    color: '#666666'
   }
 });
 

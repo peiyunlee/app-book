@@ -4,10 +4,9 @@ import {
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { Pressable, Text, StyleSheet, Image } from "react-native";
+import { View,Pressable, Text, StyleSheet, Image } from "react-native";
 import HomeStackNavigator from "./stack/HomeStackNavigator";
 import TabNavigator from "./TabNavigator";
-// import WishListScreen from "../screens/WishListScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -18,6 +17,11 @@ const CustomDrawerContent = (props) => {
   return (
     <DrawerContentScrollView {...props}>
       {/* <DrawerItemList {...props} /> */}
+      <View style={styles.account_wrapper}>
+        <Image style={styles.avatar} source={require('../assets/images/img_avatar.png')} />
+        <Text style={styles.username}>May</Text>
+      </View>
+      <View style={styles.divider}></View>
       {drawerLink.map((item) => (
         <Pressable style={styles.btn} onPress={() => navigation.navigate(item)}>
           <Image source={require("../assets/images/icon/icon_account.png")} />
@@ -43,11 +47,28 @@ const DrawerNavigator = () => {
 };
 
 const styles = StyleSheet.create({
+  username: {
+    fontSize: 24,
+    fontWeight: '600',
+    letterSpacing: 0.3,
+    color: '#131313',
+  },
+  account_wrapper: {
+    padding: 16,
+    paddingTop: 40,
+  },
+  avatar: {
+    marginBottom: 16,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: '#EDEDEF',
+  },
   btn: {
     height: 56,
-    flexDirection: 'row',
+    flexDirection: "row",
     paddingLeft: 16,
-    alignItems: 'center',
+    alignItems: "center",
   },
   btn_text: {
     marginLeft: 32,

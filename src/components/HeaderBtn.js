@@ -24,6 +24,14 @@ export const BtnSearch = () => {
   );
 };
 
+export const BtnMark = () => {
+  return (
+    <Pressable style={styles.headerBtn}>
+      <Image source={require("../assets/images/icon/icon_bookmark.png")} />
+    </Pressable>
+  );
+};
+
 
 const styles = StyleSheet.create({
   headerBtn: {

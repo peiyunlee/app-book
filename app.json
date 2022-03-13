@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "book-app",
-    "slug": "book-app",
+    "name": "hw-book-app",
+    "slug": "hw-book-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

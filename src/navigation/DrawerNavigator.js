@@ -1,16 +1,12 @@
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
 } from "@react-navigation/drawer";
-import { View,Pressable, Text, StyleSheet, Image } from "react-native";
-import HomeStackNavigator from "./stack/HomeStackNavigator";
+import { View, Pressable, Text, StyleSheet, Image } from "react-native";
 import TabNavigator from "./TabNavigator";
+import routes from './routes'
 
 const Drawer = createDrawerNavigator();
-
-const drawerLink = ["Home", "WishList", "My Books", "Account", "Setting"];
 
 const CustomDrawerContent = (props) => {
   const { navigation } = props;
@@ -22,10 +18,10 @@ const CustomDrawerContent = (props) => {
         <Text style={styles.username}>May</Text>
       </View>
       <View style={styles.divider}></View>
-      {drawerLink.map((item) => (
-        <Pressable style={styles.btn} onPress={() => navigation.navigate(item)}>
-          <Image source={require("../assets/images/icon/icon_account.png")} />
-          <Text style={styles.btn_text}>{item}</Text>
+      {routes.map((item) => (
+        <Pressable style={styles.btn} onPress={() => navigation.navigate(item.title)}>
+          <Image source={item.icon.default} />
+          <Text style={styles.btn_text}>{item.title}</Text>
         </Pressable>
       ))}
     </DrawerContentScrollView>
@@ -41,7 +37,6 @@ const DrawerNavigator = () => {
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen name="Root" component={TabNavigator} />
-      {/* <Drawer.Screen name="WishList" component={WishListScreen} /> */}
     </Drawer.Navigator>
   );
 };

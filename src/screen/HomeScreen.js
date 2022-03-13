@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Text, SectionList, FlatList } from "react-native";
 import BookItem from "../components/BookItem";
-import bookData from "../json/books.json";
+import bookData from "../data/books";
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
@@ -19,7 +19,7 @@ const HomeScreen = () => {
                 horizontal
                 data={data}
                 keyExtractor={(item) => `booklist-${item.name}`}
-                renderItem={({ item }) => <BookItem data={item} />}
+                renderItem={({ item }) => <BookItem type={title} navigation={navigation} data={item} />}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.booklist}
               />
@@ -33,6 +33,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white'
   },
   title: {
     fontSize: 24,

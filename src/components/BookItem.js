@@ -1,12 +1,16 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, Pressable } from "react-native";
+import StarList from "./StarList";
 
-const BookItem = ({ data }) => {
+const BookItem = ({ type, data, navigation }) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('../assets/images/books/img_book_calligraphy.png')} />
+      <Pressable onPress={() => navigation.navigate('Detail', data)}>
+        <Image style={styles.image} source={data.image} />
+      </Pressable>
       <Text style={styles.name}>{data.name}</Text>
       <Text style={styles.author}>{data.author}</Text>
+      {type == "Newest" ? <StarList score={data.score} /> : null}
     </View>
   );
 }
@@ -29,7 +33,8 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 12,
-    color: '#666666'
+    color: '#666666',
+    marginBottom: 8
   }
 });
 

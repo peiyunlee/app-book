@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DetailScreen from "../../screen/DetailScreen";
-import { BtnSearch,BtnMenu, } from "../../components/HeaderBtn";
+import { BtnSearch,BtnMenu,BtnBack,BtnMark } from "../../components/HeaderBtn";
 import HomeScreen from "../../screen/HomeScreen";
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +24,7 @@ const HomeStackNavigator = () => {
         options={({ navigation }) => ({
           title: "",
           headerLeft: () => <BtnBack goBack={navigation.goBack} />,
+          headerRight: () => <BtnMark />,
         })}
       />
     </Stack.Navigator>

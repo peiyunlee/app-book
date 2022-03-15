@@ -22,19 +22,23 @@ const DetailScreen = ({ route }) => {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Image source={image} />
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.author}>{author}</Text>
-      <View style={styles.score_wrapper}>
-        <StarList score={score} />
-        <Text style={styles.score_text}>{score}.0 / 5.0</Text>
-      </View>
-      <Text style={styles.description}>{short_description}</Text>
-      <Pressable style={styles.btn}>
-        <Text style={styles.btn_text}>BUY NOW FOR {price}</Text>
-      </Pressable>
-    </ScrollView>
+    <View style={{backgroundColor:'white'}}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+      >
+        <Image source={image} />
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.author}>{author}</Text>
+        <View style={styles.score_wrapper}>
+          <StarList score={score} />
+          <Text style={styles.score_text}>{score}.0 / 5.0</Text>
+        </View>
+        <Text style={styles.description}>{short_description}</Text>
+        <Pressable style={styles.btn}>
+          <Text style={styles.btn_text}>BUY NOW FOR {price}</Text>
+        </Pressable>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -44,6 +48,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingTop: 16,
     paddingBottom: 60
+  },
+  img: {
+    shadowColor: "#414144",
+    shadowOffset: {
+      width: 0,
+      height: 16,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 32,
+
+    elevation: 32,
   },
   name: {
     fontSize: 24,

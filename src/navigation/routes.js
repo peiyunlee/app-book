@@ -15,32 +15,41 @@ import WishListStackNavigator from "./stack/WishListStackNavigator";
 import MyBooksStackNavigator from "./stack/MyBooksStackNavigator";
 import AccountStackNavigator from "./stack/AccountStackNavigator";
 import SettingStackNavigator from "./stack/SettingStackNavigator";
+import TabNavigator from "./TabNavigator"
+
+export const routes_tab = [
+    {
+        title: "Home",
+        icon: { default: icon_home, actived: icon_home_actived },
+        navigator: HomeStackNavigator,
+    },
+    {
+        title: "WishList",
+        icon: { default: icon_nav_bookmark, actived: icon_nav_bookmark_actived },
+        navigator: WishListStackNavigator,
+    },
+    {
+        title: "My Books",
+        icon: { default: icon_mybook, actived: icon_mybook_actived },
+        navigator: MyBooksStackNavigator,
+    }
+];
 
 
 export default routes = [
     {
         title: "Home",
         icon: { default: icon_home, actived: icon_home_actived },
-        stack: HomeStackNavigator
-    },
-    {
-        title: "WishList",
-        icon: { default: icon_nav_bookmark, actived: icon_nav_bookmark_actived },
-        stack: WishListStackNavigator
-    },
-    {
-        title: "My Books",
-        icon: { default: icon_mybook, actived: icon_mybook_actived },
-        stack: MyBooksStackNavigator
+        navigator: TabNavigator,
     },
     {
         title: "Account",
         icon: { default: icon_account, actived: icon_account_actived },
-        stack: AccountStackNavigator
+        navigator: AccountStackNavigator
     },
     {
         title: "Setting",
         icon: { default: icon_settings, actived: icon_settings_actived },
-        stack: SettingStackNavigator
+        navigator: SettingStackNavigator
     },
 ];

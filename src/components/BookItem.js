@@ -5,7 +5,7 @@ import StarList from "./StarList";
 const BookItem = ({ type, data, navigation }) => {
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate('Detail', data)}>
+      <Pressable style={styles.btn} onPress={() => navigation.navigate('Detail', data)}>
         <Image style={styles.image} source={data.image} />
       </Pressable>
       <Text style={styles.name}>{data.name}</Text>
@@ -19,10 +19,22 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 8
   },
+  btn: {
+    shadowColor: "#414144",
+    shadowOffset: {
+      width: 0,
+      height: 16,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 32,
+    
+    elevation: 32,
+  },
   image: {
     width: 140,
     height: 200,
     marginBottom: 16,
+    
   },
   name: {
     fontSize: 16,

@@ -25,6 +25,7 @@ const DetailScreen = ({ route }) => {
     <View style={{backgroundColor:'white'}}>
       <ScrollView
         contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
       >
         <Image source={image} />
         <Text style={styles.name}>{name}</Text>
@@ -47,7 +48,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: 'white',
     paddingTop: 16,
-    paddingBottom: 60
+    paddingBottom: 60,
+    minHeight:'100%'
   },
   img: {
     shadowColor: "#414144",

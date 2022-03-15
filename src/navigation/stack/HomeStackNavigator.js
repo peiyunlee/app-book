@@ -1,8 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DetailScreen from "../../screen/DetailScreen";
 import { BtnSearch,BtnMenu,BtnBack,BtnMark } from "../../components/HeaderBtn";
 import HomeScreen from "../../screen/HomeScreen";
+import DetailScreen from "../../screen/DetailScreen";
 
 const Stack = createNativeStackNavigator();
 

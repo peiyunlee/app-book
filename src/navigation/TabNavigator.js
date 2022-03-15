@@ -1,7 +1,7 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Image } from "react-native";
-import routes from './routes'
+import routes,{routes_tab} from './routes'
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -14,19 +14,20 @@ const TabNavigator = () => {
       inactiveColor="#000000"
       barStyle={{ backgroundColor: "#ffffff" }}
     >
-      {routes.map((screen) => (<Tab.Screen
-        name={screen.title}
-        component={screen.stack}
-        options={{
-          tabBarIcon: ({ focused }) =>
-            !focused ? (
-              <Image source={screen.icon.default} />
-            ) : (
-              <Image
-                source={screen.icon.actived}
-              />
-            )
-        }} />)
+      {routes_tab.map((screen) => (
+        <Tab.Screen
+          name={screen.title}
+          component={screen.navigator}
+          options={{
+            tabBarIcon: ({ focused }) =>
+              !focused ? (
+                <Image source={screen.icon.default} />
+              ) : (
+                <Image
+                  source={screen.icon.actived}
+                />
+              )
+          }} />)
       )}
     </Tab.Navigator>
   );

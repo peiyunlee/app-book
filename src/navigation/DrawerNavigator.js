@@ -1,9 +1,9 @@
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
+  DrawerItemList
 } from "@react-navigation/drawer";
 import { View, Pressable, Text, StyleSheet, Image } from "react-native";
-import TabNavigator from "./TabNavigator";
 import routes from './routes'
 
 const Drawer = createDrawerNavigator();
@@ -12,7 +12,6 @@ const CustomDrawerContent = (props) => {
   const { navigation } = props;
   return (
     <DrawerContentScrollView {...props}>
-      {/* <DrawerItemList {...props} /> */}
       <View style={styles.account_wrapper}>
         <Image style={styles.avatar} source={require('../assets/images/img_avatar.png')} />
         <Text style={styles.username}>May</Text>
@@ -24,6 +23,7 @@ const CustomDrawerContent = (props) => {
           <Text style={styles.btn_text}>{item.title}</Text>
         </Pressable>
       ))}
+      {/* <DrawerItemList style={styles.btn} {...props} /> */}
     </DrawerContentScrollView>
   );
 };
@@ -36,7 +36,12 @@ const DrawerNavigator = () => {
       }}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
-      <Drawer.Screen name="Root" component={TabNavigator} />
+      {routes.map((item) => (
+        <Drawer.Screen
+          name={item.title}
+          component={item.navigator}
+        />
+      ))}
     </Drawer.Navigator>
   );
 };
